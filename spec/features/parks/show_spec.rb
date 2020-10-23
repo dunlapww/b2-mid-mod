@@ -19,8 +19,8 @@ describe 'As a visitor' do
   describe "When I visit an amusement park’s show page" do
     before(:each) do
       @park1 = Park.create({name: "Funpark", price: 10})
-      @ride1 = Park.rides.create({name: "Coasterride", rating: 2})
-      @ride2 = Park.rides.create({name: "Logride", rating: 7})
+      @ride1 = @park1.rides.create({name: "Coasterride", rating: 2})
+      @ride2 = @park1.rides.create({name: "Logride", rating: 7})
     end
     
     it "I see the name and price of admissions for that amusement park" do
