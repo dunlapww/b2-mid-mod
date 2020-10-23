@@ -7,3 +7,9 @@
     <%= ride.name %><br>
   </div>
 <% end%>
+<%= form_tag "/mechanic_rides" do %>
+  <%= label_tag "Add ride to mechanic:" %>
+  <%= text_field_tag "ride" %>
+  <%= submit_tag "Submit" %>
+<% end%>
+
