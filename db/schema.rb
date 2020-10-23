@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_161022) do
 
   create_table "parks", force: :cascade do |t|
     t.string "name"
-    t.integer "rating"
+    t.float "price"
   end
 
 end
