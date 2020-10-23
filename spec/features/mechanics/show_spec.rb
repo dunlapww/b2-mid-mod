@@ -31,7 +31,7 @@ describe 'As a user' do
       @mech1_ride2 = MechanicRide.create({mechanic_id: @mechanic1.id, ride_id: @ride2.id})
     end
     it "I see their name, years of experience, and names of all rides they’re working on" do
-      visit "/mechanic/#{@mechanic1.id}"
+      visit "/mechanics/#{@mechanic1.id}"
       expect(page).to have_content("Mechanic: #{@mechanic1.name}")
       expect(page).to have_content("Years of Experience: #{@mechanic1.years}")
       @mechanic.rides.each do |ride|
