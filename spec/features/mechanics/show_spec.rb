@@ -26,6 +26,7 @@ describe 'As a user' do
       @park1 = Park.create({name: "Funpark", price: 10})
       @ride1 = @park1.rides.create({name: "Coasterride", rating: 2})
       @ride2 = @park1.rides.create({name: "Logride", rating: 7})
+      @ride3 = @park1.rides.create({name: "Teacupride", rating: 10})
       @mechanic1 = Mechanic.create({name: "Earl", years: 3})
       @mech1_ride1 = MechanicRide.create({mechanic_id: @mechanic1.id, ride_id: @ride1.id})
       @mech1_ride2 = MechanicRide.create({mechanic_id: @mechanic1.id, ride_id: @ride2.id})
@@ -39,6 +40,15 @@ describe 'As a user' do
         within("#ride-#{ride.id}") do
           expect(page).to have_content(ride.name)
         end
+      end
+    end
+    it "I can add a ride to their workload by entering it into a form" do
+      visit "/mechanics/#{@mechanic1.id}"
+      fill_in "ride", with: "#{@ride3.id}"
+      click_button("Submit")
+      expect(current_path).to eq("/mechanics/#{@mechanic1.id}")
+      within("#ride-#{@ride3.id}") do
+        expect(page).to have_content(@ride3.name)
       end
     end
   end
