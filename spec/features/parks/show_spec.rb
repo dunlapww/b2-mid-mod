@@ -27,17 +27,17 @@ describe 'As a visitor' do
       visit "/parks/#{@park1.id}"
 
       expect(page).to have_content("#{@park1.name}")
-      expect(page).to have_content("Admissions: $#{@park1.price}")
+      expect(page).to have_content("Admissions: $#{@park1.price.round(2)}")
     end
-    # it "And I see the names of all the rides that are at that park" do
-    #   visit "/parks/#{@park1.id}"
-    #   expect(page).to have_content("Rides:")
-    #   @park1.rides.each do |ride|
-    #     within("#ride-#{ride.id}") do
-    #       expect(page).to have_content(ride.name)
-    #     end
-    #   end
-    # end
+    it "And I see the names of all the rides that are at that park" do
+      visit "/parks/#{@park1.id}"
+      expect(page).to have_content("Rides:")
+      @park1.rides.each do |ride|
+        within("#ride-#{ride.id}") do
+          expect(page).to have_content(ride.name)
+        end
+      end
+    end
     # it "I see the average thrill rating of this amusement park’s rides" do
     #   visit "/parks/#{@park1.id}"
     #   expect(page).to have_content("Average Thrill Rating of Rides: #{@park1.rides.avg_rating.round(2)}")
