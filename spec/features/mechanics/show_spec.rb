@@ -51,5 +51,8 @@ describe 'As a user' do
         expect(page).to have_content(@ride3.name)
       end
     end
+    it "will list rides in alphabetical order" do
+      
+    end
   end
 end
