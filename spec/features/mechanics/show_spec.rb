@@ -52,7 +52,8 @@ describe 'As a user' do
       end
     end
     it "will list rides in alphabetical order" do
-      
+      #couldn't figure out test formatting to test ordering of elements
+      #not including model method as a result
     end
   end
 end
