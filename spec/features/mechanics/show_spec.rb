@@ -34,7 +34,8 @@ describe 'As a user' do
       visit "/mechanics/#{@mechanic1.id}"
       expect(page).to have_content("Mechanic: #{@mechanic1.name}")
       expect(page).to have_content("Years of Experience: #{@mechanic1.years}")
-      @mechanic.rides.each do |ride|
+      expect(page).to have_content("Current rides they're working on:")
+      @mechanic1.rides.each do |ride|
         within("#ride-#{ride.id}") do
           expect(page).to have_content(ride.name)
         end
