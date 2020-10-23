@@ -8,8 +8,9 @@
   </div>
 <% end%>
 <%= form_tag "/mechanic_rides" do %>
+  <%= hidden_field_tag "mech_id", @mechanic.id %>
   <%= label_tag "Add ride to mechanic:" %>
-  <%= text_field_tag "ride" %>
+  <%= text_field_tag "ride_id" %>
   <%= submit_tag "Submit" %>
 <% end%>
 

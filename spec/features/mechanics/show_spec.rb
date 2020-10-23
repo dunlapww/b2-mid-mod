@@ -44,7 +44,7 @@ describe 'As a user' do
     end
     it "I can add a ride to their workload by entering it into a form" do
       visit "/mechanics/#{@mechanic1.id}"
-      fill_in "ride", with: "#{@ride3.id}"
+      fill_in "ride_id", with: "#{@ride3.id}"
       click_button("Submit")
       expect(current_path).to eq("/mechanics/#{@mechanic1.id}")
       within("#ride-#{@ride3.id}") do
